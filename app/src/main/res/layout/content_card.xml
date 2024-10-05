@@ -15,7 +15,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:card_view:cardCornerRadius="5">
+        app:cardCornerRadius="15"
+        app:cardBackgroundColor="@color/white">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
