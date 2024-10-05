@@ -19,5 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Pokeflex"
+rootProject.name = "PokeFlex"
 include(":app")
+ 
