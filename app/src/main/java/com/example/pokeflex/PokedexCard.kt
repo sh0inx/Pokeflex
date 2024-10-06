@@ -37,10 +37,10 @@ enum class PokemonType {
 
 
 @Composable
-fun PokedexGrid(width: Int, height: Int, context: Context) {
+fun PokedexGrid(width: Int, height: Int) {
     LazyVerticalGrid(columns = GridCells.Fixed(2)) {
-        items(12) {
-            Text("boykisser :3")
+        items(100) { index ->
+            PokedexCard(index + 1, "glorp", PokemonType.ELECTRIC)
         }
     }
 }
