@@ -16,11 +16,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen() {
+    val pokemon = parseJson(LocalContext.current.applicationContext)
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
@@ -32,7 +34,7 @@ fun MainScreen() {
             }
         }
     ) {
-        Scaffold (
+        Scaffold(
             modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
             topBar = {
                 TopAppBar(
@@ -68,7 +70,7 @@ fun MainScreen() {
                 ) {
                     // Create a card for each Pokemon in the list
                     // Call the card function
-                    PokedexGrid(100,100)
+                    PokedexGrid(100, 100, pokemon)
                 }
                 // Add cards here
             },
@@ -76,6 +78,6 @@ fun MainScreen() {
             contentWindowInsets = WindowInsets(16.dp, 16.dp, 16.dp),
             containerColor = MaterialTheme.colorScheme.background,
 
-        )
+            )
     }
 }
