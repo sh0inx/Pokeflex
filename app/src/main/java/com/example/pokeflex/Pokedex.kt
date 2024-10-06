@@ -10,10 +10,13 @@ import androidx.compose.foundation.Image
 import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
 
 enum class PokemonType {
@@ -108,10 +111,10 @@ fun PokedexCard(id: Int, name: String, types: List<PokemonType>) {
     Row(modifier = Modifier.width(350.dp), verticalAlignment = Alignment.CenterVertically) {
         Card(
             modifier = Modifier
-                .border(BorderStroke(3.dp, Color.Gray))
                 .width(300.dp)
                 .height(140.dp)
                 .padding(6.dp)
+                .shadow(2.dp, shape = RoundedCornerShape(11.dp))
         ) {
             Row {
                 Image(
