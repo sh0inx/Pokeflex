@@ -13,6 +13,12 @@ import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import android.content.res.*
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.border
+import androidx.compose.material3.Card
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import com.example.pokeflex.spriteMap
 enum class PokemonType {
     NORMAL,
@@ -48,10 +54,14 @@ fun PokedexGrid(width: Int, height: Int) {
 @Composable
 // note that sprite is actually a Resource ID, which is actually an int for reasons
 // that i can't explain.
-fun PokedexCard(id: Int, name: String, type: PokemonType, context: Context) {
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        Image(painter = painterResource(GetPokemonSpriteResourceID(id)), "pokemon :3")
-        Image(painter = painterResource(GetPokemonTypeResourceID(type)), "pokemon type")
+fun PokedexCard(id: Int, name: String, type: PokemonType) {
+    val defaultMod: Modifier = Modifier.size(60.dp)
+        Row(modifier = Modifier.width(350.dp), verticalAlignment = Alignment.CenterVertically) {
+            Card(modifier = Modifier.border(BorderStroke(3.dp, Color.Gray)).width(300.dp).height(140.dp).padding(6.dp)) {
+            Image(painter = painterResource(GetPokemonSpriteResourceID(id)), "pokemon :3", modifier = defaultMod)
+            Text("gleep glorp")
+            Image(painter = painterResource(GetPokemonTypeResourceID(type)), "pokemon type", modifier = defaultMod)
+        }
     }
 }
 fun GetPokemonSpriteResourceID(pokemonId: Int): Int {

@@ -68,6 +68,7 @@ fun MainScreen() {
                 ) {
                     // Create a card for each Pokemon in the list
                     // Call the card function
+                    PokedexGrid(100,100)
                 }
                 // Add cards here
             },
