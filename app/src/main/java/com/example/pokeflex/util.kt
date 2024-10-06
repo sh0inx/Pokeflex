@@ -10,12 +10,12 @@ import android.content.res.Resources
 import androidx.compose.ui.platform.LocalContext
 
 @Serializable
-data class Pokemon (val name:String, val id: Int, val type: List<PokemonType>)
+data class Pokemon(val name: String, val id: Int, val type: List<PokemonType>)
 
 class util {
-fun parseJson (context: Context): List<Pokemon> {
-    val jsonString = context.resources.openRawResource(R.raw.pokedata).toString()
-    val json = Json { ignoreUnknownKeys = true}
-    return json.decodeFromString<List<Pokemon>>(jsonString)
-   }
+    fun parseJson(context: Context): List<Pokemon> {
+        val jsonString = context.resources.openRawResource(R.raw.pokedata).toString()
+        val json = Json { ignoreUnknownKeys = true }
+        return json.decodeFromString<List<Pokemon>>(jsonString)
+    }
 }
